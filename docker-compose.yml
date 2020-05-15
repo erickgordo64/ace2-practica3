@@ -7,10 +7,10 @@ services:
     # volumes: 
     # - .:/usr/routes/index
     depends_on:
-    - mongo
+    - mongoo
   mongo:
-    container_name: mongo
-    image: mongo
+    container_name: mongoo
+    image: mongoo
     ports:
     - "27017:27017"
     volumes:
