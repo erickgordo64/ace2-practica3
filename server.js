@@ -16,7 +16,7 @@ app.use(bodyParser.text());
 app.use(index);
 
 const server = http.createServer(app);
-
+/*********************************************************************************************** */
 const io = socketIo(server); // < Interesting!
 
 let interval;
@@ -39,7 +39,7 @@ const getApiAndEmit = socket => {
   socket.emit("FromAPI", response);
 };
 
-
+/******************************************************************************************** */
 mongoose.connect(
   'mongodb://mongoo:27017/practica3',
   { useNewUrlParser: true }
