@@ -7,7 +7,7 @@ services:
     # volumes: 
     # - .:/usr/routes/index
     depends_on:
-    - mongoo
+    - mongo
   mongo:
     container_name: mongoo
     image: mongoo
