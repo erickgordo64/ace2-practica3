@@ -50,5 +50,25 @@ app.get('/ping', function (req, res) {
     return res.send('pong');
    });
 
+app.post('/data', function (req, res) {
+    const data = req.body;
+    console.log(data);
+  
+    let tmp = data.split(',');
+    
+    const newData = new Data({
+      arriba: tmp[0],
+      abajo: tmp[1],
+      derecha: tmp[2],
+      izquierda: tmp[3]
+    })
+  
+    newData.save().then((err, data) => {
+      if(err) return console.log(err);
+      res.status(200).json(data);
+    })
+  
+  });
+
 
 server.listen(port, () => console.log(`Listening on port ${port}`));
