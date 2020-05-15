@@ -50,6 +50,11 @@ app.get('/ping', function (req, res) {
     return res.send('pong');
    });
 
+app.get('/data', (req, res) => {
+    Data.find({}).sort('date')
+        .exec((err, data) => res.status(200).json(data.reverse()));
+  });
+
 app.post('/data', function (req, res) {
     const data = req.body;
     console.log(data);
