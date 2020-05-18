@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 const path = require('path');
 const mongoose = require('mongoose');
 
-const port = process.env.PORT || 80;
+const port = process.env.PORT || 8080;
 const index = require("./routes/index");
 const Data = require('./models/data.js');
 
@@ -40,6 +40,9 @@ const getApiAndEmit = socket => {
 };
 
 /******************************************************************************************** */
+
+var datos
+
 mongoose.connect(
   'mongodb://mongoo:27017/practica3',
   { useNewUrlParser: true }
@@ -50,10 +53,20 @@ app.get('/ping', function (req, res) {
     return res.send('pong');
    });
 
+app.get('/tope', (req,res)=>{
+    Data.find({}).sort({date:-1})
+        .exec((err, data) => res.status(200).json(data.shift()));
+  });
+
 app.get('/data', (req, res) => {
     Data.find({}).sort('date')
         .exec((err, data) => res.status(200).json(data.reverse()));
   });
+
+app.post("/datos", function(req,res){
+    const dat=req.body;
+    datos=dat;
+});
 
 app.post('/data', function (req, res) {
     const data = req.body;
@@ -65,7 +78,8 @@ app.post('/data', function (req, res) {
       arriba: tmp[0],
       abajo: tmp[1],
       derecha: tmp[2],
-      izquierda: tmp[3]
+      izquierda: tmp[3],
+      punteo: tmp[4]
     })
   
     newData.save().then((err, data) => {
