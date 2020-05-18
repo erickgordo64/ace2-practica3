@@ -17,6 +17,9 @@ const DataSchema = new Schema({
     punteo:{
         type: Number
     },
+    estado:{
+        type: Number
+    },
     date: {
         type: Date,
         default: Date.now
