@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 const path = require('path');
 const mongoose = require('mongoose');
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 80;
 const index = require("./routes/index");
 const Data = require('./models/data.js');
 
