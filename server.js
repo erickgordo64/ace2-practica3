@@ -80,7 +80,8 @@ app.post('/data', function (req, res) {
       derecha: tmp[2],
       izquierda: tmp[3],
       punteo: tmp[4],
-      estado: tmp[5]
+      estado: tmp[5],
+      jugada: tmp[6]
     })
   
     newData.save().then((err, data) => {

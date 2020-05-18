@@ -20,6 +20,9 @@ const DataSchema = new Schema({
     estado:{
         type: Number
     },
+    jugada:{
+        type: Number
+    },
     date: {
         type: Date,
         default: Date.now
