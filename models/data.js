@@ -1,6 +1,12 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+let ts = Date.now();
+
+let date_ob = new Date(ts);
+let date = date_ob.getDate();
+
+
 const DataSchema = new Schema({
     arriba:{
         type:Number
@@ -25,7 +31,7 @@ const DataSchema = new Schema({
     },
     date: {
         type: Date,
-        default: Date.now
+        default: date
     }
 
 });
