@@ -69,7 +69,13 @@ app.get('/tope', (req,res)=>{
   
   app.get('/fecha', (req, res) => {
     const da=req.body;
-    var d=Data.find({date: da.dia})
+    var d=Data.find(
+      {
+        $and:
+        [
+          {date: da.dia},
+          {estado:0}
+        ]})
     .exec((err, data) => res.status(200).json(data));
   });
 
