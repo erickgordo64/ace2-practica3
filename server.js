@@ -116,9 +116,9 @@ app.post('/data', function (req, res) {
     newData.save().then((err, data) => {
       if(err) return console.log(err);
       else
-      return res.status(200);
+      return res.send("exito");
     });
-    return res.status(200);
+    return res.send("exito");
   });
 
 
