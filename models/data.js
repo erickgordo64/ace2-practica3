@@ -31,7 +31,7 @@ const DataSchema = new Schema({
     enemigos:{
         type: Number
     },
-    timepo:{
+    tiempo:{
         type: Number
     },
     date: {
