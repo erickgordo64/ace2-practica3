@@ -74,7 +74,7 @@ app.get('/tope', (req,res)=>{
         $and:
         [
           {date: da.dia},
-          {estado:0}
+          {estado:1}
         ]})
     .exec((err, data) => res.status(200).json(data));
   });
