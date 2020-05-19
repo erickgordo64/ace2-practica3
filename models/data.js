@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 var ts = Date.now();
 
 let date_ob = new Date(ts);
-let day=date_ob.getDay();
+let day=date_ob.getDate();
 
 const DataSchema = new Schema({
     arriba:{
