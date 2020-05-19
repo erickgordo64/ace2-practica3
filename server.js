@@ -63,7 +63,7 @@ app.get('/tope', (req, res) => {
 
 app.post('/jugadatope', (req, res) => {
   const jug = req.body;
-  var d = Data.findOne({ jugada: jug.juga })
+  var d = Data.findOne({ jugada: jug.juga }).sort({ $natural: -1 })
     .exec((err, data) => res.status(200).json(data));
 });
 
