@@ -92,9 +92,8 @@ app.post("/dataj",function(req,res){
     if(err) 
     return console.log(err);
     else
-    res.status(200);
+    return res.status(200);
   })
-  res.status(200);
 });
 
 app.post('/data', function (req, res) {
@@ -116,9 +115,8 @@ app.post('/data', function (req, res) {
     newData.save().then((err, data) => {
       if(err) return console.log(err);
       else
-      res.status(200);
+      return res.status(200);
     })
-  res.status(200);
   });
 
 
