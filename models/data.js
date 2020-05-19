@@ -27,7 +27,7 @@ const DataSchema = new Schema({
         type: Number
     },
     date: {
-        type: Date,
+        type: String,
         default: day
     }
 
