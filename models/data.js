@@ -1,8 +1,10 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-var date_ob = new Date();
-var day=date_ob.getDay();
+var ts = Date.now();
+
+let date_ob = new Date(ts);
+let day=date_ob.getDay();
 
 const DataSchema = new Schema({
     arriba:{
