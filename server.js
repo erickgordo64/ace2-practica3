@@ -61,8 +61,19 @@ app.get('/tope', (req,res)=>{
   });
 
   app.get('/jugada', (req, res) => {
+    const jug=req.body;
+    var d=Data.find({jugada:jug.juga})
+    .exec((err, data) => res.status(200).json(data));
+  });
 
-    var d=Data.find({jugada:req.body})
+  app.get('/fecha', (req, res) => {
+
+    let ts = Date.now();
+
+    let date_ob = new Date(ts);
+    let dates = date_ob.getDate();
+
+    var d=Data.find({date: dates})
     .exec((err, data) => res.status(200).json(data));
   });
 
