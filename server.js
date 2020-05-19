@@ -46,7 +46,7 @@ const getApiAndEmit = socket => {
 var datos
 
 mongoose.connect(
-  'mongodb://mongoo:27017/practica3',
+  'mongodb://mongoo:27017/practica31',
   { useNewUrlParser: true }
 );
 
