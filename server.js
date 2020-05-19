@@ -61,7 +61,7 @@ app.get('/tope', (req,res)=>{
   });
 
   app.get('/jugada', (req, res) => {
-    Data.find(jugada=>jugada>0)
+    Data.find(jugada=>jugada<0)
         .exec((err, data) => res.status(200).json(data));
   });
 
@@ -89,7 +89,9 @@ app.post("/dataj",function(req,res){
   })
 
   newData.save().then((err, data) => {
-    if(err) return console.log(err);
+    if(err) 
+    return console.log(err);
+    else
     res.status(200).json(data);
   })
   res.status(200);
