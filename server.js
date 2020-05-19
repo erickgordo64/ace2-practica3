@@ -52,53 +52,54 @@ mongoose.connect(
 
 
 app.get('/ping', function (req, res) {
-    return res.send('pong');
-   });
-
-app.get('/tope', (req,res)=>{
-    Data.find({estado:0}).sort({$natural:-1})
-        .exec((err, data) => res.status(200).json(data.shift()));
-  });
-
-
-  app.post('/jugadatope', (req, res) => {
-    const jug=req.body;
-    var d=Data.findOne({jugada:jug.juga})
-    .exec((err, data) => res.status(200).json(data));
-  });
-
-  app.post('/jugada', (req, res) => {
-    const jug=req.body;
-    var d=Data.find({jugada:jug.juga})
-    .exec((err, data) => res.status(200).json(data));
-  });
-
-  
-  app.post('/fecha', (req, res) => {
-    const da=req.body;
-    var d=Data.find(
-      {
-        $and:
-        [
-          {date: da.dia},
-          {estado:1}
-        ]})
-    .exec((err, data) => res.status(200).json(data));
-  });
-
-app.post('/data', (req, res) => {
-    Data.find({}).sort({$natural:-1})
-        .exec((err, data) => res.status(200).json(data));
-  });
-
-app.post("/datos", function(req,res){
-    const dat=req.body;
-    datos=dat;
+  return res.send('pong');
 });
 
-app.post("/dataj",function(req,res){
-  const data=req.body;
-  
+app.get('/tope', (req, res) => {
+  Data.find({ estado: 0 }).sort({ $natural: -1 })
+    .exec((err, data) => res.status(200).json(data.shift()));
+});
+
+
+app.post('/jugadatope', (req, res) => {
+  const jug = req.body;
+  var d = Data.findOne({ jugada: jug.juga })
+    .exec((err, data) => res.status(200).json(data));
+});
+
+app.post('/jugada', (req, res) => {
+  const jug = req.body;
+  var d = Data.find({ jugada: jug.juga })
+    .exec((err, data) => res.status(200).json(data));
+});
+
+
+app.post('/fecha', (req, res) => {
+  const da = req.body;
+  var d = Data.find(
+    {
+      $and:
+        [
+          { date: da.dia },
+          { estado: 1 }
+        ]
+    })
+    .exec((err, data) => res.status(200).json(data));
+});
+
+app.get('/data', (req, res) => {
+  Data.find({}).sort({ $natural: -1 })
+    .exec((err, data) => res.status(200).json(data));
+});
+
+app.post("/datos", function (req, res) {
+  const dat = req.body;
+  datos = dat;
+});
+
+app.post("/dataj", function (req, res) {
+  const data = req.body;
+
   const newData = new Data({
     arriba: data.arriba,
     abajo: data.abajo,
@@ -112,39 +113,39 @@ app.post("/dataj",function(req,res){
   })
 
   newData.save().then((err, data) => {
-    if(err) 
-    return console.log(err);
+    if (err)
+      return console.log(err);
     else
-    return res.send("exito");
+      return res.send("exito");
   })
   return res.send("exito");
 });
 
 app.post('/data', function (req, res) {
-    const data = req.body;
-    console.log(data);
-  
-    let tmp = data.split(',');
-    
-    const newData = new Data({
-      arriba: tmp[0],
-      abajo: tmp[1],
-      derecha: tmp[2],
-      izquierda: tmp[3],
-      punteo: tmp[4],
-      estado: tmp[5],
-      jugada: tmp[6],
-      enemigos: tmp[7],
-      tiempo: tmp[8]
-    })
-  
-    newData.save().then((err, data) => {
-      if(err) return console.log(err);
-      else
+  const data = req.body;
+  console.log(data);
+
+  let tmp = data.split(',');
+
+  const newData = new Data({
+    arriba: tmp[0],
+    abajo: tmp[1],
+    derecha: tmp[2],
+    izquierda: tmp[3],
+    punteo: tmp[4],
+    estado: tmp[5],
+    jugada: tmp[6],
+    enemigos: tmp[7],
+    tiempo: tmp[8]
+  })
+
+  newData.save().then((err, data) => {
+    if (err) return console.log(err);
+    else
       return res.send("exito");
-    });
-    return res.send("exito");
-  });
+  })
+  return res.send("exito");
+});
 
 
 server.listen(port, () => console.log(`Listening on port ${port}`));
