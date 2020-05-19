@@ -61,13 +61,8 @@ app.get('/tope', (req,res)=>{
   });
 
   app.get('/jugada', (req, res) => {
-    const d=[];
-
-    Data.find({}).sort({jugada:-1})
-        .exec((err, data) =>
-        
-        d=data.filter(jugada=>jugada>0), 
-        res.status(200).json(d));
+    Data.find({}).sort({jugada: jugada<0})
+        .exec((err, data) => res.status(200).json(data));
   });
 
 app.get('/data', (req, res) => {
