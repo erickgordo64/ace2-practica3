@@ -71,9 +71,9 @@ app.get('/tope', (req,res)=>{
     let ts = Date.now();
 
     let date_ob = new Date(ts);
-    let dates = date_ob.getDate();
+    let day = date_ob.getDay();
 
-    var d=Data.find({date: dates})
+    var d=Data.find({date: day})
     .exec((err, data) => res.status(200).json(data));
   });
 

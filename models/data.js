@@ -5,6 +5,7 @@ let ts = Date.now();
 
 let date_ob = new Date(ts);
 let dates = date_ob.getDate();
+let day=date_ob.getDay();
 
 const DataSchema = new Schema({
     arriba:{
@@ -30,7 +31,7 @@ const DataSchema = new Schema({
     },
     date: {
         type: Date,
-        default: dates
+        default: day
     }
 
 });
