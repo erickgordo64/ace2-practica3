@@ -28,6 +28,12 @@ const DataSchema = new Schema({
     jugada:{
         type: Number
     },
+    enemigos:{
+        type: Number
+    },
+    timepo:{
+        type: Number
+    },
     date: {
         type: String,
         default: day

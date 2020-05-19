@@ -99,7 +99,9 @@ app.post("/dataj",function(req,res){
     izquierda: data.izquierda,
     punteo: data.punteo,
     estado: data.estado,
-    jugada: data.jugada
+    jugada: data.jugada,
+    enemigos: data.enemigos,
+    tiempo: data.tiempo
   })
 
   newData.save().then((err, data) => {
@@ -124,7 +126,9 @@ app.post('/data', function (req, res) {
       izquierda: tmp[3],
       punteo: tmp[4],
       estado: tmp[5],
-      jugada: tmp[6]
+      jugada: tmp[6],
+      enemigos: tmp[7],
+      tiempo: tmp[8]
     })
   
     newData.save().then((err, data) => {
