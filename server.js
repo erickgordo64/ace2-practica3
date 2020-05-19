@@ -61,7 +61,7 @@ app.get('/tope', (req,res)=>{
   });
 
   app.get('/jugada', (req, res) => {
-    Data.find(jugada>0)
+    Data.find(jugada=> jugada.jugada<0)
         .exec((err, data) => res.status(200).json(data.reverse()));
   });
 
