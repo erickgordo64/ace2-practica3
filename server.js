@@ -62,7 +62,8 @@ app.get('/tope', (req,res)=>{
 
   app.get('/jugada', (req, res) => {
 
- 
+    var d=Data.findOne({jugada:{$gt:0}});
+    return res.send(d);
   });
 
 app.get('/data', (req, res) => {
