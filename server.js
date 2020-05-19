@@ -60,6 +60,11 @@ app.get('/tope', (req,res)=>{
         .exec((err, data) => res.status(200).json(data.shift()));
   });
 
+  app.get('/jugada', (req, res) => {
+    Data.find({}).sort({date:-1})
+        .exec((err, data) => res.status(200).json(data.filter(jugada=> jugada>0)));
+  });
+
 app.get('/data', (req, res) => {
     Data.find({}).sort('date')
         .exec((err, data) => res.status(200).json(data.reverse()));
