@@ -74,13 +74,13 @@ app.post("/dataj",function(req,res){
   const data=req.body;
   
   const newData = new Data({
-    arriba: data.arriba,
-    abajo: data.abajo,
-    derecha: data.derecha,
-    izquierda: data.izquierda,
-    punteo: data.punteo,
-    estado: data.estado,
-    jugada: data.jugada
+    arriba: req.body.arriba,
+    abajo: req.body.abajo,
+    derecha: req.body.derecha,
+    izquierda: req.body.izquierda,
+    punteo: req.body.punteo,
+    estado: req.body.estado,
+    jugada: req.body.jugada
   })
 
   newData.save().then((err, data) => {
