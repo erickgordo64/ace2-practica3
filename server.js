@@ -56,7 +56,7 @@ app.get('/ping', function (req, res) {
    });
 
 app.get('/tope', (req,res)=>{
-    Data.find({estado:0}).sort({date:-1})
+    Data.find({estado:0}).sort({$natural:-1})
         .exec((err, data) => res.status(200).json(data.shift()));
   });
 
