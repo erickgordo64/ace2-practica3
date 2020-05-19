@@ -61,20 +61,20 @@ app.get('/tope', (req,res)=>{
   });
 
 
-  app.get('/jugadatope', (req, res) => {
+  app.post('/jugadatope', (req, res) => {
     const jug=req.body;
     var d=Data.findOne({jugada:jug.juga})
     .exec((err, data) => res.status(200).json(data));
   });
 
-  app.get('/jugada', (req, res) => {
+  app.post('/jugada', (req, res) => {
     const jug=req.body;
     var d=Data.find({jugada:jug.juga})
     .exec((err, data) => res.status(200).json(data));
   });
 
   
-  app.get('/fecha', (req, res) => {
+  app.post('/fecha', (req, res) => {
     const da=req.body;
     var d=Data.find(
       {
@@ -86,7 +86,7 @@ app.get('/tope', (req,res)=>{
     .exec((err, data) => res.status(200).json(data));
   });
 
-app.get('/data', (req, res) => {
+app.post('/data', (req, res) => {
     Data.find({}).sort({$natural:-1})
         .exec((err, data) => res.status(200).json(data));
   });
