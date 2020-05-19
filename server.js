@@ -94,6 +94,7 @@ app.post("/dataj",function(req,res){
     else
     return res.status(200);
   })
+  return res.status(200);
 });
 
 app.post('/data', function (req, res) {
@@ -116,7 +117,8 @@ app.post('/data', function (req, res) {
       if(err) return console.log(err);
       else
       return res.status(200);
-    })
+    });
+    return res.status(200);
   });
 
 
