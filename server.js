@@ -60,6 +60,13 @@ app.get('/tope', (req,res)=>{
         .exec((err, data) => res.status(200).json(data.shift()));
   });
 
+
+  app.get('/jugadatope', (req, res) => {
+    const jug=req.body;
+    var d=Data.findOne({jugada:jug.juga})
+    .exec((err, data) => res.status(200).json(data));
+  });
+
   app.get('/jugada', (req, res) => {
     const jug=req.body;
     var d=Data.find({jugada:jug.juga})
