@@ -68,9 +68,7 @@ app.get('/tope', (req,res)=>{
 
   app.get('/fecha', (req, res) => {
 
-    let ts = Date.now();
-
-    let date_ob = new Date(ts);
+    let date_ob = new Date();
     let day = date_ob.getDay();
 
     var d=Data.find({date: day})
@@ -78,8 +76,8 @@ app.get('/tope', (req,res)=>{
   });
 
 app.get('/data', (req, res) => {
-    Data.find({}).sort('date')
-        .exec((err, data) => res.status(200).json(data.reverse()));
+    Data.find({}).sort({$natural:-1})
+        .exec((err, data) => res.status(200).json(data));
   });
 
 app.post("/datos", function(req,res){

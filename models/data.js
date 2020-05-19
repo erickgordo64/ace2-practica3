@@ -1,9 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-let ts = Date.now();
-
-let date_ob = new Date(ts);
+let date_ob = new Date();
 let day=date_ob.getDay();
 
 const DataSchema = new Schema({
