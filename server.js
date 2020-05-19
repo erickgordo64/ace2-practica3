@@ -13,6 +13,7 @@ const app = express();
 
 app.use(express.static(path.join(__dirname, 'build')));
 app.use(bodyParser.text());
+app.use(bodyParser.json());
 app.use(index);
 
 const server = http.createServer(app);
