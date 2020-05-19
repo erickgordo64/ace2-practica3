@@ -61,7 +61,7 @@ app.get('/tope', (req,res)=>{
   });
 
   app.get('/jugada', (req, res) => {
-    const d;
+    const d=[];
 
     Data.find({}).sort({jugada:-1})
         .exec((err, data) =>
