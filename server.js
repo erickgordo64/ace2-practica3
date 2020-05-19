@@ -66,12 +66,10 @@ app.get('/tope', (req,res)=>{
     .exec((err, data) => res.status(200).json(data));
   });
 
+  
   app.get('/fecha', (req, res) => {
-
-    let date_ob = new Date();
-    let day = date_ob.getDay();
-
-    var d=Data.find({date: day})
+    const da=req.body;
+    var d=Data.find({date: da.dia})
     .exec((err, data) => res.status(200).json(data));
   });
 
