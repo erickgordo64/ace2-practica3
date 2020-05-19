@@ -62,7 +62,7 @@ app.get('/tope', (req,res)=>{
 
   app.get('/jugada', (req, res) => {
 
-    var d=Data.findOne({jugada:{$gt:0}})
+    var d=Data.find({jugada:{$gt:0}})
     .exec((err, data) => res.status(200).json(data));
   });
 
