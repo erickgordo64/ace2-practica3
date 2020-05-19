@@ -92,9 +92,9 @@ app.post("/dataj",function(req,res){
     if(err) 
     return console.log(err);
     else
-    return res.status(200);
+    return res.send("exito");
   })
-  return res.status(200);
+  return res.send("exito");
 });
 
 app.post('/data', function (req, res) {
