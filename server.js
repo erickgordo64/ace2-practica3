@@ -56,14 +56,15 @@ app.get('/ping', function (req, res) {
    });
 
 app.get('/tope', (req,res)=>{
-    Data.find({}).sort({date:-1})
-        .exec((err, data) => res.status(200).json(data.shift()));
+    var d=Data.findOne({jugada:{$gt:0}});
+
+    return res.json(d);
   });
 
   app.get('/jugada', (req, res) => {
 
-    Data.find({}).sort({jugada: -1})
-    .exec((err, data) => res.status(200).json(data.filter(jugada=> jugada>0)));
+    Data.filter(jugada=> jugada>0).sort({jugada: -1})
+    .exec((err, data) => res.status(200).json(data));
     
   });
 
