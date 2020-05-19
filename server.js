@@ -14,6 +14,7 @@ const app = express();
 app.use(express.static(path.join(__dirname, 'build')));
 app.use(bodyParser.text());
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(index);
 
 const server = http.createServer(app);
@@ -67,6 +68,25 @@ app.get('/data', (req, res) => {
 app.post("/datos", function(req,res){
     const dat=req.body;
     datos=dat;
+});
+
+app.post("/dataj",function(req,res){
+  const data=req.body;
+  
+  const newData = new Data({
+    arriba: data.arriba,
+    abajo: data.abajo,
+    derecha: data.derecha,
+    izquierda: data.izquierda,
+    punteo: data.punteo,
+    estado: data.estado,
+    jugada: data.jugada
+  })
+
+  newData.save().then((err, data) => {
+    if(err) return console.log(err);
+    res.status(200).json(data);
+  })
 });
 
 app.post('/data', function (req, res) {
