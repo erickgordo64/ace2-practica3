@@ -63,7 +63,7 @@ app.get('/tope', (req,res)=>{
   app.get('/jugada', (req, res) => {
 
     const d=Data.find({}).sort({date:-1});
-    return res.json(d.reverse());
+    return res.json(d);
   });
 
 app.get('/data', (req, res) => {
